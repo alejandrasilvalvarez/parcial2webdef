@@ -9,4 +9,8 @@ export class RedsocialService {
         @InjectRepository(RedsocialEntity)
         private readonly redsocialRepository: Repository<RedsocialEntity>
     ){}
+
+    async createLibreria(redsocial: RedsocialEntity): Promise<RedsocialEntity> {
+        return await this.redsocialRepository.save(redsocial);
+    }
 }
