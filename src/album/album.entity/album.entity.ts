@@ -3,15 +3,15 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class AlbumEntity {
- @PrimaryGeneratedColumn('uuid')
- id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: number;
 
- @Column()
- fechaInicio: Date;
- 
- @Column()
- fechaFin: Date;
+    @Column()
+    fechaInicio: Date;
 
- @OneToMany(() => FotoEntity, foto => foto.album)
-   fotos: FotoEntity[];
+    @Column()
+    fechaFin: Date;
+
+    @OneToMany(() => FotoEntity, foto => foto.album)
+    fotos: FotoEntity[];
 }
