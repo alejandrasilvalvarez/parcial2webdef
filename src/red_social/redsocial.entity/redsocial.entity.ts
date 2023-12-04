@@ -1,3 +1,4 @@
+import { IsNotEmpty, Length } from 'class-validator';
 import { FotoEntity } from 'src/foto/foto.entity';
 import { UsuarioEntity } from 'src/usuario/usuario.entity/usuario.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
@@ -10,7 +11,8 @@ export class RedsocialEntity {
     @Column()
     nombre: string;
 
-    @Column()
+    @IsNotEmpty()
+    @Length(20, 100, { message: 'El número de teléfono debe tener exactamente 10 caracteres' })
     slogan: string;
 
     @OneToMany(() => UsuarioEntity, usuario => usuario.redsocial)
